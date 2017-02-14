@@ -5,3 +5,5 @@ require('./js/conf-uirouter.js');
 require('./js/ctrl-app.js');
 require('./view/view1/view1.js');
 require('./view/view2/view2.js');
+require('./scss/app.scss');
+require('jquery');
