@@ -1,38 +1,47 @@
 'use strict';
 
-var webpack = require('webpack');
-var path = require("path");
+const webpack  = require('webpack');
+const path = require('path');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const extractSass = new ExtractTextPlugin({
+    filename: "[name].[hash].css",
+    disable: process.env.NODE_ENV === "development"
+});
 
-module.exports = {
-    entry: __dirname + '/src/main.js',
+const config = {
+    entry: './src/main.js',
     output: {
-        path: __dirname + '/dist',
-        filename: 'bundle.js'
+        path: path.resolve(__dirname, 'dist'),
+        filename: '[name].[hash].js'
     },
     devtool: 'source-map',
     module: {
         rules: [{
             test: /\.scss$/,
-            use: [{
-                loader: 'style-loader'
-            }, {
-                loader: 'css-loader'
-            }, {
-                loader: 'sass-loader',
-                options: {
-                    includePaths: [
-                        path.resolve(__dirname, '../scss/from-include-path')
-                    ]
-                }
-            }]
+            use: extractSass.extract({
+                loader: [{
+                    loader: "css-loader"
+                }, {
+                    loader: "sass-loader"
+                }],
+                // use style-loader in development
+                fallback: "style-loader"
+            })
         }, {
             test: /\.woff2?$|\.ttf$|\.eot$|\.svg$/,
             use: [{
                 loader: 'file-loader'
             }]
-        }, {
-            test: /bootstrap-sass\/assets\/javascripts\//,
-            loader: 'imports?jQuery=jquery'
         }]
-    }
+    },
+    plugins: [
+        extractSass,
+        new webpack.ProvidePlugin({
+           $: "jquery",
+           jQuery: "jquery",
+           'window.jQuery': 'jquery'
+       })
+    ]
 };
+
+module.exports = config;
