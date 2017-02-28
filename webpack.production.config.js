@@ -1,9 +1,10 @@
 const webpack = require('webpack');
 const path = require('path');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const extractSass = new ExtractTextPlugin({
-    filename: "[name].[hash].css"
+    filename: "[name].[hash].min.css"
 });
 
 //dir path
@@ -23,7 +24,7 @@ const config = {
 
     output: {
         path: distPath,
-        filename: '[name].[hash].js'
+        filename: '[name].[hash].min.js'
     },
 
     module: {
@@ -34,13 +35,10 @@ const config = {
                     use: [{
                         loader: "css-loader",
                         options: {
-                            sourceMap: true
+                            minimize: true
                         }
                     }, {
-                        loader: "sass-loader",
-                        options: {
-                            sourceMap: true
-                        }
+                        loader: "sass-loader"
                     }],
                     // use style-loader in development
                     fallback: "style-loader"
@@ -74,14 +72,6 @@ const config = {
                 include: [viewPath]
             }
         ]
-    },
-
-    devtool: 'source-map',
-
-    devServer: {
-        historyApiFallback: true,
-        hot: true,
-        inline: true
     },
 
     plugins: [
@@ -123,8 +113,10 @@ const config = {
        }),
        new webpack.optimize.CommonsChunkPlugin({
             name: 'vendors',
-            filename: '[name].[hash].js'
-        })
+            filename: '[name].[hash].min.js'
+        }),
+        new UglifyJSPlugin({}),
+        new webpack.BannerPlugin("Copyright xiaodabao.")
     ]
 };
 

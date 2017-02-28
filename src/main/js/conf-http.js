@@ -1,4 +1,4 @@
-var temp = require('./app.js');
+var temp = require('./app');
 
 temp.config(['$httpProvider',
     function ($httpProvider) {

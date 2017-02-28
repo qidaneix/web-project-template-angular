@@ -1,4 +1,4 @@
-var temp = require('../../js/app.js');
+var temp = require('../../js/app');
 
 temp.controller('view1Ctrl',
     ['$scope',

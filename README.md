@@ -1,2 +1,2 @@
 # web-project-templates
-前端自动化模版
+angular+webpack项目脚手架
