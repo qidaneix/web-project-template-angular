@@ -1,5 +1,5 @@
 {
-  "name": "web-project-templates",
+  "name": "web-project-template-angular",
   "version": "1.0.0",
   "description": "angular+webpack项目脚手架",
   "main": "index.js",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/qidaneix/web-project-templates.git"
+    "url": "git+https://github.com/qidaneix/web-project-template-angular.git"
   },
   "keywords": [
     "前端",
@@ -21,9 +21,9 @@
   "author": "xiaodabao",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/qidaneix/web-project-templates/issues"
+    "url": "https://github.com/qidaneix/web-project-template-angular/issues"
   },
-  "homepage": "https://github.com/qidaneix/web-project-templates#readme",
+  "homepage": "https://github.com/qidaneix/web-project-template-angular#readme",
   "devDependencies": {
     "css-loader": "^0.26.1",
     "extract-text-webpack-plugin": "^2.0.0",
