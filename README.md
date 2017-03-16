@@ -4,7 +4,7 @@ angular+webpack项目脚手架
 本工程为基于angular框架的前端项目开发脚手架，其特点如下：
 
 * 使用angular1（angular@1.6.2）作为项目主框架，并包含jQuery（jquery@3.1.1）、bootstrap库作为辅助工具
-* 使用bootstrap-sass（bootstrap-sass@3.3.7）作为css框架，可以覆盖bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss文件中的默认配置，从而自定义样式
+* 使用bootstrap-sass（bootstrap-sass@3.3.7）作为css框架，可以覆盖 bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss文件中的默认配置，从而自定义样式
 * 整合angular-ui-router作为路由管理
 * 整合font-awesome开源图标库
 * 使用webpack2（webpack@2.2.1）前端模块化开发工具作为项目自动化构建与开发工具
