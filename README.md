@@ -1,4 +1,4 @@
-# web-project-templates-angular
+# web-project-template-angular
 angular+webpack项目脚手架
 
 本工程为基于angular框架的前端项目开发脚手架，其特点如下：
