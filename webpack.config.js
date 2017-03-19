@@ -3,7 +3,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const extractSass = new ExtractTextPlugin({
-    filename: "[name].[hash].css"
+    filename: '[name].[hash].css'
 });
 
 //dir path
@@ -32,18 +32,18 @@ const config = {
                 test: /\.scss$/,
                 use: extractSass.extract({
                     use: [{
-                        loader: "css-loader",
+                        loader: 'css-loader',
                         options: {
                             sourceMap: true
                         }
                     }, {
-                        loader: "sass-loader",
+                        loader: 'sass-loader',
                         options: {
                             sourceMap: true
                         }
                     }],
                     // use style-loader in development
-                    fallback: "style-loader"
+                    fallback: 'style-loader'
                 }),
                 include: [srcPath]
             }, {
@@ -117,11 +117,11 @@ const config = {
             inject: 'body'
         }),
         new webpack.ProvidePlugin({
-           $: "jquery",
-           jQuery: "jquery",
+           $: 'jquery',
+           jQuery: 'jquery',
            'window.jQuery': 'jquery'
-       }),
-       new webpack.optimize.CommonsChunkPlugin({
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
             name: 'vendors',
             filename: '[name].[hash].js'
         })
