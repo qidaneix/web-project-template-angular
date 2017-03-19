@@ -4,7 +4,7 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const extractSass = new ExtractTextPlugin({
-    filename: "[name].[hash].min.css"
+    filename: '[name].[hash].min.css'
 });
 
 //dir path
@@ -33,15 +33,15 @@ const config = {
                 test: /\.scss$/,
                 use: extractSass.extract({
                     use: [{
-                        loader: "css-loader",
+                        loader: 'css-loader',
                         options: {
                             minimize: true
                         }
                     }, {
-                        loader: "sass-loader"
+                        loader: 'sass-loader'
                     }],
                     // use style-loader in development
-                    fallback: "style-loader"
+                    fallback: 'style-loader'
                 }),
                 include: [srcPath]
             }, {
@@ -107,16 +107,16 @@ const config = {
             inject: 'body'
         }),
         new webpack.ProvidePlugin({
-           $: "jquery",
-           jQuery: "jquery",
-           'window.jQuery': 'jquery'
-       }),
-       new webpack.optimize.CommonsChunkPlugin({
+            $: 'jquery',
+            jQuery: 'jquery',
+            'window.jQuery': 'jquery'
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
             name: 'vendors',
             filename: '[name].[hash].min.js'
         }),
         new UglifyJSPlugin({}),
-        new webpack.BannerPlugin("Copyright xiaodabao.")
+        new webpack.BannerPlugin('Copyright xiaodabao.')
     ]
 };
 
