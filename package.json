@@ -14,8 +14,8 @@
     "url": "git+https://github.com/qidaneix/web-project-template-angular.git"
   },
   "keywords": [
-    "前端",
     "angular",
+    "webpack",
     "脚手架"
   ],
   "author": "xiaodabao",
